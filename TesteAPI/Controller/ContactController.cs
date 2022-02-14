@@ -21,6 +21,7 @@ namespace ContactApi.Controller
         public async Task<List<Contact>> GetContacts() =>
             await _contactService.GetAsync();
 
+
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<Contact>> GetContactById(string id)
         {
@@ -69,7 +70,7 @@ namespace ContactApi.Controller
                 return NotFound();
             }
 
-            await _contactService.DeleteAsync(contact.Id);
+            await _contactService.DeleteAsync(id);
 
             return NoContent();
         }

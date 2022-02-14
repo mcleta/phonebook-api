@@ -12,7 +12,6 @@ namespace ContactApi.Service
             IOptions<ContactDatabaseSettings> cDSettings
         ){
             var mongoClient = new MongoClient(cDSettings.Value.ConnectionString);
-
             var mongoDatabase = mongoClient.GetDatabase(cDSettings.Value.Database);
 
             _contacts = mongoDatabase.GetCollection<Contact>(cDSettings.Value.CollectionName);
